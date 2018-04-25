@@ -1,0 +1,29 @@
+{
+  "name": "app-repl",
+  "version": "1.0.0",
+  "description": "Base library to make a REPL for your Node.js application",
+  "main": "index.js",
+  "bin": {
+    "app-repl": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byteclubfr/app-repl.git"
+  },
+  "author": "Nicolas Chambrier <naholyr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byteclubfr/app-repl/issues"
+  },
+  "homepage": "https://github.com/byteclubfr/app-repl#readme",
+  "dependencies": {
+    "chalk": "^2.4.0",
+    "fs-extra": "^5.0.0",
+    "ora": "^2.0.0",
+    "pkg-up": "^2.0.0",
+    "user-home": "^2.0.0"
+  }
+}
