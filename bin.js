@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const Path = require('path')
 const myRepl = require('./index')
 
 let modulePath = process.argv[2]
@@ -21,7 +22,7 @@ const name = process.argv[3] || require(require('pkg-up').sync()).name
 let locals = {}
 if (modulePath) {
   // Note that './' prefix is mandatory for local modules
-  locals.api = require(modulePath)
+  locals.api = require(modulePath[0] === '.' ? Path.resolve(modulePath) : modulePath)
 }
 
 myRepl({ name, locals })
