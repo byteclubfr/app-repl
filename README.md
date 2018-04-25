@@ -1,4 +1,4 @@
-# app-repl
+# my-repl
 
 You can use this small library as a quick-start to create a REPL for your application.
 
@@ -9,7 +9,7 @@ A dedicated REPL can be a very easy way to add an administration CLI to any proj
 * Easy to setup with smart defaults (just provide a name, a few locals, and you're ready)
 * Highly configurable (see available options below)
 * Async-friendly : when expression evaluates as a promise, the REPL will hold and wait for the result to be actually ready
-* Comes with a bin `app-repl` to test it right away (see executable below)
+* Comes with a bin `my-repl` to test it right away (see executable below)
 
 ## Samples
 
@@ -18,7 +18,7 @@ A dedicated REPL can be a very easy way to add an administration CLI to any proj
 Suppose you have your model layer in `lib/model` which exposes all your asynchronous methods to handle your data, you could add a CRUD CLI in your application with this code:
 
 ```js
-require('app-repl')({
+require('my-repl')({
   name: 'my-app',
   locals: model,
 })
@@ -32,7 +32,7 @@ Note that you may not even need to write a line of JavaScript as adding this to 
 {
   "name": "my-app",
   "scripts": {
-    "repl": "app-repl ./lib/model"
+    "repl": "my-repl ./lib/model"
   }
 }
 ```
@@ -42,7 +42,8 @@ Note that you may not even need to write a line of JavaScript as adding this to 
 … and customized welcome string, adding your own message. See `sample.js`:
 
 ```js
-const { init: appRepl, defaultWelcome, chalk } = require('./index')
+const { init: myRepl, defaultWelcome } = require('my-repl')
+const chalk = require('chalk')
 const { promisify } = require('util')
 
 const myHelpers = {
@@ -56,9 +57,9 @@ const myHelpers = {
 const name = 'my-helpers'
 
 const welcome = defaultWelcome({ name, locals })
-  + chalk`{bold.cyan This is the sample app-repl: call the functions available locally to test it}`
+  + chalk`{bold.cyan Play with my helpers!}`
 
-appRepl({ name, locals, welcome })
+myRepl({ name, locals, welcome })
 ```
 
 ### A very minimal async REPL
@@ -67,18 +68,18 @@ See `minimal.js`:
 
 ```js
 // no welcome, no history, no prompt = no need for name
-require('app-repl')({
+require('my-repl')({
   welcome: '',
   promptPrefix: '',
   historyFileName: '',
 })
 ```
 
-## `app-repl` executable
+## `my-repl` executable
 
-This module comes with an executable named `app-repl`.
+This module comes with an executable named `my-repl`.
 
-**Usage**: `app-repl [module-path] [name]`
+**Usage**: `my-repl [module-path] [name]`
 
 - if module-path is unset or empty, no additional locals will be injected, otherwise the provided module will be required and injected as local variable `api`
 - if name is unset or empty, your package.json will be used
@@ -87,11 +88,11 @@ This allows to easily run a CRUD administration CLI without coding anything, or 
 
 ```sh
 # Start the admin CLI to manage data, typically you will add it to your package.json:
-npm add --save-dev app-repl
-app-repl ./lib/model
+npm add --save-dev my-repl
+my-repl ./lib/model
 
-# Just run a one-shot app-repl just to play with a local module
-npx app-repl ./lib/my/wip.js
+# Just run a one-shot my-repl just to play with a local module
+npx my-repl ./lib/my/wip.js
 ```
 
 ## Available options

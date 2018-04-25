@@ -1,6 +1,6 @@
-const appRepl = require('./index')
+const myRepl = require('./index')
 
-appRepl({
+myRepl({
   welcome: '',
   promptPrefix: '',
   historyFileName: null,

@@ -1,4 +1,4 @@
-const appRepl = require('./index')
+const myRepl = require('./index')
 
 let modulePath = process.argv[2]
 if (modulePath === '--help' || modulePath === '-h') {
@@ -22,4 +22,4 @@ if (modulePath) {
   locals.api = require(modulePath)
 }
 
-appRepl({ name, locals })
+myRepl({ name, locals })

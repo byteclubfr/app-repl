@@ -1,8 +1,8 @@
-const { init: appRepl, defaultWelcome } = require('./index')
+const { init: myRepl, defaultWelcome } = require('./index')
 const chalk = require('chalk')
 const { promisify } = require('util')
 
-const name = 'sample-app-repl'
+const name = 'sample-repl'
 
 const locals = {
   hello: () => 'Hello, world',
@@ -13,4 +13,4 @@ const locals = {
 const welcome = defaultWelcome({ name, locals })
   + chalk`{bold.cyan This is the sample app-repl: call the functions available locally to test it}`
 
-appRepl({ name, locals, welcome })
+myRepl({ name, locals, welcome })
