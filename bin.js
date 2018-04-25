@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const myRepl = require('./index')
 
 let modulePath = process.argv[2]
