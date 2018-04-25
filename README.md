@@ -4,6 +4,8 @@ You can use this small library as a quick-start to create a REPL for your applic
 
 A dedicated REPL can be a very easy way to add an administration CLI to any project : you probably already have a model layer, just inject it in an async-capable REPL and you have your CLI CRUD all set!
 
+[![asciicast](https://asciinema.org/a/uLWmp2jYETOJSLaEVRalZygBh.png)](https://asciinema.org/a/uLWmp2jYETOJSLaEVRalZygBh)
+
 ## Main features
 
 * Easy to setup with smart defaults (just provide a name, a few locals, and you're ready)
